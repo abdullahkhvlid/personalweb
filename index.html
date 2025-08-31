@@ -57,21 +57,64 @@
       position: relative;
       display: inline-block;
       z-index: 2;
-      max-width: 320px; /* Reduced from 400px */
+      max-width: 200px; /* Reduced by 50% from original 400px */
+      margin: 0 auto;
+    }
+    
+    .profile-img-wrapper {
+      position: relative;
+      width: 200px;
+      height: 200px;
       margin: 0 auto;
     }
     
     .profile-img {
       width: 100%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      transform: perspective(1000px) rotateY(-5deg);
-      transition: all 0.5s ease;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      position: relative;
+      z-index: 5;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     
-    .profile-img:hover {
-      transform: perspective(1000px) rotateY(0deg);
+    .circle-border {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .border-1 {
+      width: 110%;
+      height: 110%;
+      top: -5%;
+      left: -5%;
+      border: 2px solid var(--primary-color);
+      animation: pulse 3s infinite;
+    }
+    
+    .border-2 {
+      width: 120%;
+      height: 120%;
+      top: -10%;
+      left: -10%;
+      border: 2px solid rgba(13, 110, 253, 0.5);
+      animation: pulse 3s infinite reverse;
+    }
+    
+    .border-3 {
+      width: 130%;
+      height: 130%;
+      top: -15%;
+      left: -15%;
+      border: 2px solid rgba(13, 110, 253, 0.2);
+      animation: pulse 3s infinite 1s;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
     }
     
     /* Enhanced Cards */
@@ -224,8 +267,9 @@
         padding: 100px 0 60px;
       }
       
-      .profile-image-container {
-        max-width: 280px;
+      .profile-img-wrapper {
+        width: 180px;
+        height: 180px;
         margin-bottom: 30px;
       }
       
@@ -240,12 +284,9 @@
         display: none;
       }
       
-      .profile-image-container {
-        max-width: 240px;
-      }
-      
-      .profile-img {
-        transform: none; /* Remove perspective on mobile */
+      .profile-img-wrapper {
+        width: 160px;
+        height: 160px;
       }
       
       .display-4 {
@@ -258,8 +299,9 @@
     }
 
     @media (max-width: 576px) {
-      .profile-image-container {
-        max-width: 200px;
+      .profile-img-wrapper {
+        width: 140px;
+        height: 140px;
       }
       
       .display-4 {
@@ -316,11 +358,15 @@
             <a href="https://github.com/abdullahkhvlid" target="_blank" class="text-dark me-3"><i class="fab fa-github fa-2x"></i></a>
             <a href="https://www.linkedin.com/in/connectabdullahkhalid/" target="_blank" class="text-dark me-3"><i class="fab fa-linkedin fa-2x"></i></a>
             <a href="https://instagram.com/encodeabdullah" target="_blank" class="text-dark me-3"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="mailto:connect.abdullahkhalid@gmail.com" class="text-dark me-3"><i class="fas fa-envelope fa-2x"></i></a>
           </div>
         </div>
         <div class="col-lg-6 order-lg-2 order-1 text-center mb-4 mb-lg-0">
-          <div class="profile-image-container animate">
-            <img src="linkedinprofileimg1.png" alt="Abdullah Khalid" class="profile-img">
+          <div class="profile-img-wrapper animate">
+            <div class="circle-border border-1"></div>
+            <div class="circle-border border-2"></div>
+            <div class="circle-border border-3"></div>
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Abdullah Khalid" class="profile-img">
           </div>
         </div>
       </div>
@@ -339,7 +385,7 @@
       <div class="row g-4">
         <div class="col-md-4">
           <div class="card h-100 shadow-sm border-0">
-            <img src="img1.webp" class="card-img-top" alt="Python Web Scraping">
+            <img src="https://images.unsplash.com/photo-1526379879527-8559ecfcaec0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Python Web Scraping">
             <div class="card-body p-4">
               <h5 class="fw-bold mb-2">Python & Web Scraping</h5>
               <p class="mb-0">Built custom job scraping tools using Python, BeautifulSoup, and Selenium for sites like Glassdoor, Indeed, and RemoteOK.</p>
@@ -348,7 +394,7 @@
         </div>
         <div class="col-md-4">
           <div class="card h-100 shadow-sm border-0">
-            <img src="img2.webp" class="card-img-top" alt="Django Web Development">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Django Web Development">
             <div class="card-body p-4">
               <h5 class="fw-bold mb-2">Django Web Development</h5>
               <p class="mb-0">Developed full-featured business and portfolio websites with Django — including admin panels, login systems, and dynamic forms.</p>
@@ -357,7 +403,7 @@
         </div>
         <div class="col-md-4">
           <div class="card h-100 shadow-sm border-0">
-            <img src="img3.webp" class="card-img-top" alt="Frontend Development">
+            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Frontend Development">
             <div class="card-body p-4">
               <h5 class="fw-bold mb-2">Frontend: HTML, CSS & Bootstrap</h5>
               <p class="mb-0">Designed responsive, mobile-friendly UIs using Bootstrap 5 and custom CSS. Focused on clean layout and UX best practices.</p>
@@ -367,7 +413,7 @@
         <!-- New Cards -->
         <div class="col-md-4">
           <div class="card h-100 shadow-sm border-0">
-            <img src="eda.webp" class="card-img-top" alt="Data Analysis">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Data Analysis">
             <div class="card-body p-4">
               <h5 class="fw-bold mb-2">Data Analysis</h5>
               <p class="mb-0">Expert in data visualization, analysis, and manipulation using NumPy, Pandas, Matplotlib, and Seaborn for exploratory data analysis.</p>
@@ -376,7 +422,7 @@
         </div>
         <div class="col-md-4">
           <div class="card h-100 shadow-sm border-0">
-            <img src="ml.webp" class="card-img-top" alt="Machine Learning">
+            <img src="https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Machine Learning">
             <div class="card-body p-4">
               <h5 class="fw-bold mb-2">Machine Learning</h5>
               <p class="mb-0">Skilled in training machine learning models for predictive analytics using various algorithms and frameworks to derive insights from data.</p>
@@ -428,6 +474,7 @@
           <div class="social-icons">
             <a href="https://github.com/abdullahkhvlid" target="_blank" class="text-white me-3"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/connectabdullahkhalid/" target="_blank" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+            <a href="https://instagram.com/encodeabdullah" target="_blank" class="text-white me-3"><i class="fab fa-instagram"></i></a>
             <a href="mailto:connect.abdullahkhalid@gmail.com" class="text-white"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
