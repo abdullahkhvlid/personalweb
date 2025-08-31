@@ -9,14 +9,198 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="css/style.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #0d6efd;
+      --dark-color: #212529;
+      --light-color: #f8f9fa;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      padding-top: 76px; /* Account for fixed navbar */
+    }
+    
+    /* Enhanced Hero Section */
+    .services-header {
+      background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(246,249,255,1) 100%);
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .services-header::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(13, 110, 253, 0.05);
+      z-index: 0;
+    }
+    
+    .services-header::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(13, 110, 253, 0.05);
+      z-index: 0;
+    }
+    
+    /* Enhanced Cards */
+    .card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+    }
+    
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+    
+    /* Skills Section */
+    #services {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .skill-bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(13, 110, 253, 0.05);
+      z-index: 0;
+    }
+    
+    .bubble-1 {
+      width: 100px;
+      height: 100px;
+      top: 20%;
+      left: 10%;
+    }
+    
+    .bubble-2 {
+      width: 150px;
+      height: 150px;
+      bottom: 10%;
+      right: 15%;
+    }
+    
+    /* Enhanced buttons */
+    .btn {
+      border-radius: 50px;
+      font-weight: 500;
+      padding: 12px 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+    }
+    
+    .btn-primary:hover {
+      box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+      transform: translateY(-2px);
+    }
+    
+    .btn-light:hover {
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    
+    /* Social icons */
+    .social-icons a {
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .social-icons a:hover {
+      color: var(--primary-color) !important;
+      transform: translateY(-3px);
+    }
+    
+    /* Navbar enhancement */
+    .navbar {
+      transition: all 0.3s ease;
+      padding: 15px 0;
+    }
+    
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    /* Section headings */
+    .display-4 {
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .display-4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 2px;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+    
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+  </style>
 </head>
 
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Abdullah Khalid</a>
+      <a class="navbar-brand fw-bold" href="index.html">ABDULLAH KHALID</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -27,11 +211,13 @@
           <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">Contact</a>
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Contact</a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><a class="dropdown-item" href="mailto:connect.abdullahkhalid@gmail.com"><i class="fas fa-envelope me-2"></i>Email</a></li>
               <li><a class="dropdown-item" href="tel:+923160109469"><i class="fas fa-phone me-2"></i>Phone</a></li>
               <li><a class="dropdown-item" href="https://www.linkedin.com/in/connectabdullahkhalid/" target="_blank"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+              <li><a class="dropdown-item" href="https://wa.me/923160109469" target="_blank"><i class="fab fa-whatsapp me-2"></i>WhatsApp</a></li>
+              <li><a class="dropdown-item" href="https://github.com/abdullahkhvlid" target="_blank"><i class="fab fa-github me-2"></i>GitHub</a></li>
             </ul>
           </li>
         </ul>
@@ -40,65 +226,83 @@
   </nav>
 
   <!-- Services Header -->
-  <header class="services-header py-5">
+  <header class="services-header">
     <div class="container text-center">
-      <h1 class="display-4 fw-bold">My Services</h1>
-      <p class="lead">Professional solutions tailored to your technical needs</p>
+      <h1 class="display-4 fw-bold animate">My Services</h1>
+      <p class="lead animate delay-1">Professional solutions tailored to your technical needs</p>
     </div>
   </header>
 
   <!-- Services Section -->
-  <section class="py-5">
+  <section class="py-5 bg-light" id="services">
+    <div class="skill-bubble bubble-1"></div>
+    <div class="skill-bubble bubble-2"></div>
+    
     <div class="container">
       <div class="row g-4">
 
         <!-- Python Development -->
         <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm">
+          <div class="card h-100 shadow-sm border-0">
             <img src="img4.webp" class="card-img-top" alt="Python Development">
             <div class="card-body p-4">
-              <h3 class="h5 mb-3">Python Development</h3>
-              <p>Custom backend logic, script automation, and dynamic websites using Python, Django, and FastAPI.</p>
+              <h3 class="h5 fw-bold mb-3">Python Development</h3>
+              <p class="mb-0">Custom backend logic, script automation, and dynamic websites using Python, Django, and FastAPI.</p>
             </div>
           </div>
         </div>
 
         <!-- Web Scraping -->
         <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm">
+          <div class="card h-100 shadow-sm border-0">
             <img src="img5.webp" class="card-img-top" alt="Web Scraping">
             <div class="card-body p-4">
-              <h3 class="h5 mb-3">Web Scraping</h3>
-              <p>Built real-time job scraping tools using Selenium and BeautifulSoup for platforms like RemoteOK, Glassdoor, and Indeed.</p>
+              <h3 class="h5 fw-bold mb-3">Web Scraping</h3>
+              <p class="mb-0">Built real-time job scraping tools using Selenium and BeautifulSoup for platforms like RemoteOK, Glassdoor, and Indeed.</p>
             </div>
           </div>
         </div>
 
         <!-- Website Development -->
         <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm">
-            <img src="img6.webp" class="card-img-top" alt="Frontend Development">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="img6.webp" class="card-img-top" alt="Website Development">
             <div class="card-body p-4">
-              <h3 class="h5 mb-3">Frontend & UI Design</h3>
-              <p>Crafted responsive UIs using HTML5, CSS3, Bootstrap 5 — fully mobile-optimized and user-centered layouts.</p>
+              <h3 class="h5 fw-bold mb-3">Website Development</h3>
+              <p class="mb-0">Crafted responsive UIs using HTML5, CSS3, Bootstrap 5 — fully mobile-optimized and user-centered layouts.</p>
             </div>
           </div>
         </div>
 
-        <!-- Data Handling -->
+        <!-- Data Analysis -->
         <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="eda.webp" class="card-img-top" alt="Data Analysis">
             <div class="card-body p-4">
-              <h3 class="h5 mb-3">Learning in Progress: Data Science & AI</h3>
-              <p>Currently enrolled in an AI & Data Science course. Topics being mastered include:</p>
-              <ul class="list-unstyled">
-                <li><i class="fas fa-check text-primary me-2"></i> NumPy & Pandas for data manipulation</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Data visualization (Matplotlib, Seaborn)</li>
-                <li><i class="fas fa-check text-primary me-2"></i> ML algorithms: Regression, SVM, KNN</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Neural networks, CNNs, RNNs</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Transformers & LLMs (BERT, GPT)</li>
-                <li><i class="fas fa-check text-primary me-2"></i> AI deployment with FastAPI</li>
-              </ul>
+              <h3 class="h5 fw-bold mb-3">Data Analysis</h3>
+              <p class="mb-0">Expert in data visualization, analysis, and manipulation using NumPy, Pandas, Matplotlib, and Seaborn for exploratory data analysis.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Machine Learning -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="ml.webp" class="card-img-top" alt="Machine Learning">
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold mb-3">Machine Learning</h3>
+              <p class="mb-0">Skilled in training machine learning models for predictive analytics using various algorithms and frameworks to derive insights from data.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body p-4 d-flex flex-column justify-content-center text-center">
+              <h3 class="h5 fw-bold mb-3">Interested in working together?</h3>
+              <p class="mb-4">Let's discuss how I can help bring your ideas to life.</p>
+              <a href="mailto:connect.abdullahkhalid@gmail.com" class="btn btn-primary">Get in Touch</a>
             </div>
           </div>
         </div>
@@ -107,28 +311,20 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-5 bg-primary text-white">
-    <div class="container text-center">
-      <h2 class="mb-4">Ready to start your project?</h2>
-      <p class="lead mb-4">Let's discuss how I can help bring your ideas to life.</p>
-      <a href="mailto:connect.abdullahkhalid@gmail.com" class="btn btn-light btn-lg px-4">Get in Touch</a>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="bg-dark text-white py-4">
     <div class="container">
-      <div class="row">
+      <div class="row align-items-center">
         <div class="col-md-6">
-          <h5>Abdullah Khalid</h5>
-          <p>AI & Data Science Learner & Python Developer</p>
+          <h5 class="mb-3">ABDULLAH KHALID</h5>
+          <p class="mb-0">Artificial Intelligence and Data Science</p>
         </div>
         <div class="col-md-6 text-md-end">
-          <p>&copy; <span id="year"></span> All Rights Reserved</p>
+          <p class="mb-3">&copy; <span id="year"></span> All Rights Reserved</p>
           <div class="social-icons">
             <a href="https://github.com/abdullahkhvlid" target="_blank" class="text-white me-3"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/connectabdullahkhalid/" target="_blank" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+            <a href="https://instagram.com/encodeabdullah" target="_blank" class="text-white me-3"><i class="fab fa-instagram"></i></a>
             <a href="mailto:connect.abdullahkhalid@gmail.com" class="text-white"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
@@ -139,6 +335,24 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.animate');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.visibility = 'visible';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      animatedElements.forEach(el => {
+        el.style.visibility = 'hidden';
+        observer.observe(el);
+      });
+    });
   </script>
 </body>
 
