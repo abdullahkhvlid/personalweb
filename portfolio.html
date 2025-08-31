@@ -9,39 +9,214 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="css/style.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #0d6efd;
+      --dark-color: #212529;
+      --light-color: #f8f9fa;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      padding-top: 76px; /* Account for fixed navbar */
+    }
+    
+    /* Enhanced Hero Section */
+    .portfolio-header {
+      background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(246,249,255,1) 100%);
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .portfolio-header::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(13, 110, 253, 0.05);
+      z-index: 0;
+    }
+    
+    .portfolio-header::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(13, 110, 253, 0.05);
+      z-index: 0;
+    }
+    
+    /* Enhanced Cards */
+    .card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+    }
+    
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+    
+    /* Portfolio Section */
+    #portfolio {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .skill-bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(13, 110, 253, 0.05);
+      z-index: 0;
+    }
+    
+    .bubble-1 {
+      width: 100px;
+      height: 100px;
+      top: 20%;
+      left: 10%;
+    }
+    
+    .bubble-2 {
+      width: 150px;
+      height: 150px;
+      bottom: 10%;
+      right: 15%;
+    }
+    
+    /* Enhanced buttons */
+    .btn {
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+    }
+    
+    .btn-primary:hover {
+      box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline-primary:hover {
+      box-shadow: 0 5px 15px rgba(13, 110, 253, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    /* Social icons */
+    .social-icons a {
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .social-icons a:hover {
+      color: var(--primary-color) !important;
+      transform: translateY(-3px);
+    }
+    
+    /* Navbar enhancement */
+    .navbar {
+      transition: all 0.3s ease;
+      padding: 15px 0;
+    }
+    
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    /* Section headings */
+    .display-4 {
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .display-4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 2px;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+    
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+  </style>
 </head>
 
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Abdullah Khalid</a>
+      <a class="navbar-brand fw-bold" href="index.html">ABDULLAH KHALID</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="portfolio.html">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-              Contact
-            </a>
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Contact</a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><a class="dropdown-item" href="mailto:connect.abdullahkhalid@gmail.com"><i class="fas fa-envelope me-2"></i>Email</a></li>
               <li><a class="dropdown-item" href="tel:+923160109469"><i class="fas fa-phone me-2"></i>Phone</a></li>
               <li><a class="dropdown-item" href="https://www.linkedin.com/in/connectabdullahkhalid/" target="_blank"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+              <li><a class="dropdown-item" href="https://wa.me/923160109469" target="_blank"><i class="fab fa-whatsapp me-2"></i>WhatsApp</a></li>
+              <li><a class="dropdown-item" href="https://github.com/abdullahkhvlid" target="_blank"><i class="fab fa-github me-2"></i>GitHub</a></li>
             </ul>
           </li>
         </ul>
@@ -50,64 +225,132 @@
   </nav>
 
   <!-- Portfolio Header -->
-  <header class="portfolio-header py-5 bg-primary text-white">
+  <header class="portfolio-header">
     <div class="container text-center">
-      <h1 class="display-4 fw-bold">My Portfolio</h1>
-      <p class="lead">A showcase of my projects and technical solutions</p>
+      <h1 class="display-4 fw-bold animate">My Portfolio</h1>
+      <p class="lead animate delay-1">A showcase of my projects and technical solutions</p>
     </div>
   </header>
 
   <!-- Portfolio Section -->
-  <section class="py-5">
+  <section class="py-5 bg-light" id="portfolio">
+    <div class="skill-bubble bubble-1"></div>
+    <div class="skill-bubble bubble-2"></div>
+    
     <div class="container">
       <div class="row g-4">
         <!-- Job Trend Analyzer -->
         <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm project-card">
-            <img src="img7.webp" alt="Job Trend Analyzer">
-            <div class="card-body">
-              <h3 class="h5 mb-3">Job Trend Analyzer</h3>
-              <p class="card-text">Real-time job market analyzer that scrapes listings from major platforms and visualizes demand across roles, locations, and skills.</p>
-              <a href="https://github.com/abdullahkhvlid/job-trend-analyzer" target="_blank" class="btn btn-sm btn-outline-primary">View Code</a>
+          <div class="card h-100 shadow-sm border-0">
+            <img src="img7.webp" class="card-img-top" alt="Job Trend Analyzer">
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold mb-3">Job Trend Analyzer</h3>
+              <p class="mb-0">Real-time job market analyzer that scrapes listings from major platforms and visualizes demand across roles, locations, and skills.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <a href="https://github.com/abdullahkhvlid/job-trend-analyzer" target="_blank" class="btn btn-outline-primary btn-sm">View Code</a>
             </div>
           </div>
         </div>
 
         <!-- Glassdoor Scraper -->
         <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm project-card">
+          <div class="card h-100 shadow-sm border-0">
             <img src="img8.webp" class="card-img-top" alt="Glassdoor Scraper">
-            <div class="card-body">
-              <h3 class="h5 mb-3">Glassdoor Scraper</h3>
-              <p class="card-text">Built using Selenium, BeautifulSoup, and Pandas to extract job listings from Glassdoor and analyze them for data trends.</p>
-              <a href="https://github.com/abdullahkhvlid/glassdoor-scraping" target="_blank" class="btn btn-sm btn-outline-primary">View Code</a>
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold mb-3">Glassdoor Scraper</h3>
+              <p class="mb-0">Built using Selenium, BeautifulSoup, and Pandas to extract job listings from Glassdoor and analyze them for data trends.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <a href="https://github.com/abdullahkhvlid/glassdoor-scraping" target="_blank" class="btn btn-outline-primary btn-sm">View Code</a>
             </div>
           </div>
         </div>
 
         <!-- Amazon Scraper -->
         <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm project-card">
+          <div class="card h-100 shadow-sm border-0">
             <img src="img9.webp" class="card-img-top" alt="Amazon Scraper">
-            <div class="card-body">
-              <h3 class="h5 mb-3">Amazon Product Scraper</h3>
-              <p class="card-text">Automated data extraction from Amazon product pages using Selenium, BS4, and Pandas for structured analysis.</p>
-              <a href="https://github.com/abdullahkhvlid/seleniump1" target="_blank" class="btn btn-sm btn-outline-primary">View Code</a>
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold mb-3">Amazon Product Scraper</h3>
+              <p class="mb-0">Automated data extraction from Amazon product pages using Selenium, BS4, and Pandas for structured analysis.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <a href="https://github.com/abdullahkhvlid/seleniump1" target="_blank" class="btn btn-outline-primary btn-sm">View Code</a>
             </div>
           </div>
         </div>
 
         <!-- Django Website for CarWow Clone -->
         <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm project-card">
-            <img src="img10.webp" class="card-img-top" alt="CarWow Clone Website">
-            <div class="card-body">
-              <h3 class="h5 mb-3">CarWow Clone</h3>
-              <p class="card-text">Built a responsive car comparison platform using HTML, CSS, Bootstrap, Python, and Django with full backend support.</p>
-              <a href="https://github.com/abdullahkhvlid/Carwow" target="_blank" class="btn btn-sm btn-outline-primary">View Code</a>
+          <div class="card h-100 shadow-sm border-0">
+            <img src="img10.webp" class="card-img-top" alt="Car Dealership Website">
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold mb-3">Car Dealership Website</h3>
+              <p class="mb-0">Built a responsive car comparison platform using HTML, CSS, Bootstrap, Python, and Django with full backend support.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <a href="https://github.com/abdullahkhvlid/Carwow" target="_blank" class="btn btn-outline-primary btn-sm">View Code</a>
             </div>
           </div>
         </div>
+
+        <!-- Facebook Scraping -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="fbscrape.webp" class="card-img-top" alt="Facebook Scraping">
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold mb-3">Facebook Lead Scraper</h3>
+              <p class="mb-0">Scraped leads from Facebook using BeautifulSoup and Selenium, formatted into structured Excel files for business use.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <a href="https://github.com/abdullahkhvlid/Facebook-Scraping" target="_blank" class="btn btn-outline-primary btn-sm">View Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- LinkedIn Scraping -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="lks.webp" class="card-img-top" alt="LinkedIn Scraping">
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold mb-3">LinkedIn Profile Scraper</h3>
+              <p class="mb-0">Developed a tool to extract professional profiles from LinkedIn for recruitment and networking purposes with data export capabilities.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <a href="https://github.com/abdullahkhvlid/Linkedin-Scraping" target="_blank" class="btn btn-outline-primary btn-sm">View Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Machine Learning -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="ml.webp" class="card-img-top" alt="Machine Learning">
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold mb-3">Machine Learning Projects</h3>
+              <p class="mb-0">Implemented various ML algorithms including supervised and unsupervised learning for predictive modeling and data pattern recognition.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <a href="https://github.com/abdullahkhvlid/logistic-regression" target="_blank" class="btn btn-outline-primary btn-sm">View Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Analysis -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="eda.webp" class="card-img-top" alt="Data Analysis">
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold mb-3">Data Analysis Projects</h3>
+              <p class="mb-0">Performed comprehensive exploratory data analysis using NumPy, Pandas, Matplotlib and Seaborn to derive actionable insights from complex datasets.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <a href="https://github.com/abdullahkhvlid/Diabetes-EDA" target="_blank" class="btn btn-outline-primary btn-sm">View Code</a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- GitHub CTA -->
@@ -123,16 +366,17 @@
   <!-- Footer -->
   <footer class="bg-dark text-white py-4">
     <div class="container">
-      <div class="row">
+      <div class="row align-items-center">
         <div class="col-md-6">
-          <h5>Abdullah Khalid</h5>
-          <p>AI & Data Science Professional</p>
+          <h5 class="mb-3">ABDULLAH KHALID</h5>
+          <p class="mb-0">Artificial Intelligence and Data Science</p>
         </div>
         <div class="col-md-6 text-md-end">
-          <p>&copy; <span id="year"></span> All Rights Reserved</p>
+          <p class="mb-3">&copy; <span id="year"></span> All Rights Reserved</p>
           <div class="social-icons">
             <a href="https://github.com/abdullahkhvlid" target="_blank" class="text-white me-3"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/connectabdullahkhalid/" target="_blank" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+            <a href="https://instagram.com/encodeabdullah" target="_blank" class="text-white me-3"><i class="fab fa-instagram"></i></a>
             <a href="mailto:connect.abdullahkhalid@gmail.com" class="text-white"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
@@ -143,6 +387,24 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.animate');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.visibility = 'visible';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      animatedElements.forEach(el => {
+        el.style.visibility = 'hidden';
+        observer.observe(el);
+      });
+    });
   </script>
 </body>
 
